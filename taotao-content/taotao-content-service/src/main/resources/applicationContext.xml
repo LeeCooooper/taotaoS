@@ -78,8 +78,11 @@
                     address="192.168.71.100:2181" />
     <!-- 用dubbo协议在20881端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20881" />
-    <!-- 声明需要暴露的服务接口
-    <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" />
--->
+    <!-- 声明需要暴露的服务接口-->
+    <dubbo:service interface="com.taotao.content.service.ItemContentService" ref="itemContentServiceImpl" />
+    <dubbo:reference interface="com.taotao.content.service.ItemContentService" timeout="5000">
+        <dubbo:method name="showAd1Node" timeout="5000" />
+    </dubbo:reference>
+
 </beans>
 
